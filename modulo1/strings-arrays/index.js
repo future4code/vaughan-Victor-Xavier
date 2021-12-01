@@ -13,11 +13,11 @@
 
 // Escrita de codigos
 //1
-/*
+
 const nomeUsuario = prompt ("Qual seu nome de usuário?");
 const emailUsuario = prompt ("Qual seu email?");
 console.log("O e-mail" , emailUsuario , "foi cadastrado com sucesso. Seja bem-vinda(o)," , nomeUsuario );
-*/
+
 //2
 
 const comidasFavoritas = [ "churrasco", "pizza", "hamburguer", "cuscuz", "macarrão"]
