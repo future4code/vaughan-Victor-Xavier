@@ -24,7 +24,7 @@ function minhaCaracteristica() {
 minhaCaracteristica()
 
 //b)
-/*
+
 function fraseB (nome , idade , cidade , profissao){
 nome = "Victor"
 idade = Number(27)
@@ -51,7 +51,7 @@ const numeroDigitado2 = Number(prompt("digite outro numero"))
 const somaDosDigitos = (numeroDigitado1 + numeroDigitado2)
 
 console.log(`A soma dos numeros da função é ${somaDosDigitos}` )
-*/
+
 
 //2) b)
 // faz a função, determina as variaveis dela. depois faz a soma(q foi pedida), da o return. aplica as constantes do prompt em numero, sinca a variaval da funçao(linhas 57 com 67) e imprime a soma delas.
