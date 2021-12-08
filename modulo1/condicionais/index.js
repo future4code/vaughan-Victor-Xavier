@@ -68,7 +68,7 @@ else {
 
 
 
-
+// tentando o 
 
 function compraDoIngressoParaAssistirJogo(nomeCompleto, tipoDeJogo, etapaDoJogo, categoria, QuantidadeDeIngressos) {
 
