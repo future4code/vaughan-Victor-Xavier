@@ -18,24 +18,39 @@ retornaArrayInvertido()
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-   return array.sort(function (a, b) { return a - b });
-   //DESAFIO  return function compararNumeros(a, b) { if (a == b) return 0; if (a < b) return -1; if (a > b) return 1; }
-
+    return array.sort(function (a, b) { return a - b });
+    //DESAFIO  return function compararNumeros(a, b) { if (a == b) return 0; if (a < b) return -1; if (a > b) return 1; }
 }
-
+retornaArrayOrdenado()
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
+    return array.filter(item => (item % 2) === 0)
 
 }
-
+retornaNumerosPares()
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
+    par = array.filter(item => (item % 2) === 0)
+    return par.map(item => Math.pow(item, 2))
+
 
 }
+retornaNumerosParesElevadosADois()
+
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
+    biggerValue = -Infinity
+    for (numero of array) {
+        if (numero > biggerValue) {
+            biggerValue = numero
+        }
+       
+    }
+    return biggerValue
+
+
 
 }
 
