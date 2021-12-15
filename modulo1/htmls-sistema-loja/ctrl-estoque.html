@@ -5,54 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Controle de Estoque</title>
 </head>
 
 <body>
-    <div>
-        <p>Fiteiro's Company</p>
-    </div>
+    <header>
+        <div class="titulo">
+            <h1>Fiteiro's Company</h1>
 
-    <div>
-        <a href="http://127.0.0.1:5500/index.html">Página Inicial</a>
-        <a href="http://127.0.0.1:5500/ctrl-estoque.html">Controle de Estoque</a>
-        <a href="http://127.0.0.1:5500/add-produto.html">Adicionar Produto</a>
-        <a href="http://127.0.0.1:5500/funcionarios.html">Funcionários</a>
-    </div>
+        </div>
 
+        <div>
+            <button> <a href="http://127.0.0.1:5500/index.html">Página Inicial</a></button>
+            <button> <a href="http://127.0.0.1:5500/ctrl-estoque.html">Controle de Estoque</a></button>
+            <button> <a href="http://127.0.0.1:5500/add-produto.html">Adicionar Produto</a></button>
+            <button> <a href="http://127.0.0.1:5500/funcionarios.html">Funcionários</a></button>
+        </div>
+    </header>
     <h2>Controle de Estoque</h2>
 
     <table>
         <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço (R$)</th>
-            <th>Quantidade disponível</th>
+            <th class="texto">Produto</th>
+            <th class="texto">Descrição</th>
+            <th class="texto">Preço (R$)</th>
+            <th class="texto">Quantidade disponível</th>
         </tr>
 
         <tr>
-            <td><img src="Imagens loja/Bubbaloo/Bubaloo.png" alt="Imagem Chicle BUBBALOO caixas com 300g" . width="300"
-                    .height="300" /></td>
-            <td> BUBBALOO caixas com 300g </td>
-            <td> 4,50 </td>
-            <td>50.000 </td>
+            <td class="borda-trident"><img src="Imagens loja/Bubbaloo/Bubaloo.png"
+                    alt="Imagem Chicle BUBBALOO caixas com 300g" . width="300" .height="300" /></td>
+            <td class="texto"> <strong> BUBBALOO caixas com 300g </strong> </td>
+            <td class="texto"> <strong>13,99</strong> </td>
+            <td class="texto"> <strong>50.000</strong></td>
 
         </tr>
         <tr>
             <td>
                 <a href="http://127.0.0.1:5500/Bubbaloo.html">
-                    <button><strong>Clique para ver os sabores </strong></button>
+                    <button> <strong> Clique para ver os sabores </strong> </button>
                 </a>
             </td>
         </tr>
         <tr>
         <tr>
-            <th><img src="Imagens loja/BigBig/BigBig-Sabores.png" alt="Chiclete Big Big caixa" . width="300"
-                    .height="300"></th>
+            <th class="borda-trident"><img src="Imagens loja/BigBig/BigBig-Sabores.png" alt="Chiclete Big Big caixa" .
+                    width="300" .height="300"></th>
             <th>Chiclete Big Big caixa</th>
             <th>9,99</th>
             <th>60.000</th>
+        <tr></tr>
+
         <tr>
+
             <td>
                 <a href="http://127.0.0.1:5500/Chiclete-BigBig.html">
                     <button><strong>Clique para ver os sabores </strong></button>
@@ -61,16 +67,17 @@
         </tr>
 
         <tr>
-            <td><img src="Imagens loja/Pirulito Big-big.png" alt="Pirulito Big Big Tutti Frutti 600g" . width="200"
-                    .height="200" /></td>
+            <td class="borda-trident"><img src="Imagens loja/Pirulito Big-big.png"
+                    alt="Pirulito Big Big Tutti Frutti 600g" . width="200" .height="200" /></td>
+
             <td> Pirulito Big Big Tutti Frutti 600g </td>
             <td> 13,60 </td>
             <td> 20000 </td>
         </tr>
 
         <tr>
-            <td><img src="Imagens loja/Trident/Trident-Sabores.png" alt="TRIDENT sabores pacote 8G" . width="200"
-                    .height="200" /></td>
+            <td class="borda-trident"><img class="borda-de-produtos" src="Imagens loja/Trident/Trident-Sabores.png"
+                    alt="TRIDENT sabores pacote 8G" . width="200" .height="200" /></td>
             <td> TRIDENT sabores 8G </td>
             <td> 1,99 </td>
             <td> 90000 </td>
