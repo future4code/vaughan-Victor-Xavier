@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+
+body {
+
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2;
+    grid-template-rows: 3;
+
+    ;
+
+}
+
+header {
+    background-color: #c83986;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+
+
+
+
+}
+
+footer {
+    background-color: #c83986;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100vh;
+
+}
+
+#HOME {
+    margin: 10px;
+    grid-row: 1/1;
+    grid-column: 1/2;
+
+
+}
+
+#PRODUTOS {
+    margin: 10px;
+    grid-row: 2 / 2;
+    grid-column: 1 / 2;
+}
+
+#CARRINHO {
+    margin: 10px;
+    background-color: #f2d0e0;
+}
+
+#PERFIL {
+    margin: 10px;
+    background-color: #f2d0e0;
+
+}
+
+
+
+.margem-foto {
+    margin-right: 10px;
+    grid-row-end: 1;
+
+}
+
+button {
+    background-color: #efefef;
+    width: 100px;
+    text-align: center;
+    align-self: end;
+
+
+
+}
+
+.color-rosa {
+    background-color: #f2d0e0;
+
+    grid-row: 1/7;
+}
+
+#centralizar {
+    text-align: center;
+
+}
+
+.fundo-da-imagem {
+   padding-top: 16px ;
+   border-top: 100px;
+  justify-items: center;
+  
+    background-image: #e6e6e6;
+
+}
+
+#negrito {
+    font-weight: bold;
+}
+
+#bolo {
+border: 16px;
+
+   
+}
