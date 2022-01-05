@@ -52,6 +52,9 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
     height: 24px;
+    position: static;
+    bottom: 0;
+    left: 0;
 }
 
 .grip {
@@ -92,9 +95,9 @@ footer {
 main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
 
-    row-gap: 32px;
+    
 
 }
 
@@ -110,4 +113,51 @@ body {
     box-shadow: 2px 2px 20px 2px rgb(97, 97, 97);
 
 
+}
+#tamanho-video{
+  
+   
+}
+
+/*mobile*/
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr ;
+        height: 100%;
+        
+    }
+
+    body {
+        height: 100vh;
+        
+    }
+
+    h2 {
+        font-size: 100%;
+
+    }
+
+    header {
+        height: max-content;
+
+    }
+    .card-video{
+       
+    }
+    #tamanho-video{
+        height: 70%;
+        max-width: 720px;
+        
+       
+    }
+    .imagem-video {
+
+        min-height: 100px;
+        min-width: 150px;
+    }
+    footer{
+        margin-top:10px ;
+    }
 }
