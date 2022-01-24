@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "dcb95ceb-7fe4-453d-8d01-853063d1a2d6",
+		"name": "labefy by vsux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddMusic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists\n",
+					"protocol": "https",
+					"host": [
+						"https"
+					],
+					"port": "",
+					"path": [
+						"",
+						"us-central1-labenu-apis.cloudfunctions.net",
+						"labefy",
+						"playlists\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
