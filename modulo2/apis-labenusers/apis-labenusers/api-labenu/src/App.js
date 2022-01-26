@@ -1,79 +1,46 @@
-import React from 'react';
-import styled from 'styled-components';
-import './App.css';
-import axios from 'axios'
+import react from "react";
+import axios from "axios";
+import React from "react";
+import TelaCadastro from "./Components/TelaCadastro";
+import TelaListaUsuarios from "./Components/TelaListaUsuarios";
 
 
-class App extends React.Component() {
+
+
+class App extends React.Component {
   state = {
-    userList: [],
-    nameInput: "",
-    emailInput: ""
-
-
-  }
-  onchangeInputName = (event) => {
-    this.setState({ nameInput: event.target.value })
-  }
-  onchangeInputEmail = (event) => {
-    this.setState({ emailImput: event.target.value })
+    telaAtual: "cadastro"
   }
 
-  createUser = () => {
-    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-    const body = {
-      name: this.state.nameInput,
-      email: this.state.emailInput
+  escolheTela = () => {
+    switch (this.state.telaAtual) {
+      case 'cadastro':
+        return <TelaCadastro irParaLista={this.irParaLista} />
+      case 'lista':
+        return <TelaListaUsuarios irParaCadastro={this.irParaCadastro} />
+      default:
+        return <div>Erro pagina não encontrada</div>
     }
 
-    axios.post(url, body, { headers: { Authorization: "victor-xavier-vaughan" } })
+  }
 
-      .then((response) => {
-        console.log(response.data)
-        this.setState({ nameInput: "", emailImput: "" });
-        alert("Usuário cadastrado")
-          .catch((error) => {
-            console.log(error.data)
-            alert("Erro no cadastro")
+  irParaCadastro = () => {
+    this.setState({telaAtual:"cadastro"})
 
-          })
-      })
+  }
 
-
+  irParaLista = () => {
+    this.setState({telaAtual:"lista"})
   }
 
   render() {
-
-    const createUserList= this.state.createUser.map((user)=>{
-      return(
-        <div>
-         
-          <p>{user.name}</p>
-        </div>
-      )
-    })
-
-
     return (
-
-
       <div>
-        <input
-          placeholder='Nome'
-          value={this.state.nameInput}
-          onChange={this.onchangeInputName}
-        />
-        <input
-          placeholder='Email'
-          value={this.state.emailInput}
-          onChange={this.onchangeInputEmail}
-        />
-        <button onClick={this.createUserList}>Enviar</button>
+        {this.escolheTela()}
 
       </div>
-    )
+    );
   }
-
 }
 
 export default App;
