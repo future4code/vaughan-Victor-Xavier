@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { Home } from './Components/Home/Home';
+import { ListaDeMatch } from './Components/ListaDeMatchs/ListaDeMatch';
+import { Header } from './Components/Header/Header';
+
+
+
 
 function App() {
+  const [home, setHome] = useState('')
+  // const [listaMatch, setListaMatch] = useState('')
+
+
+  const irParaListaMatch = () => {
+    setHome('matchs')
+  }
+  const irParaHome = () => {
+    setHome('home')
+  }
+  const selecionarPagina = () => {
+    switch (home) {
+      case "home":
+        return <Home irParaListaMatch={irParaListaMatch} />
+      case "matchs":
+        return <ListaDeMatch irParaHome={irParaHome} />
+      default:
+        return <Home irParaHome={irParaHome} />
+    }
+  }
+
+
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <Header  irParaHome={irParaHome} irParaListaMatch={irParaListaMatch}  />
+      
+      {selecionarPagina()}
+
     </div>
-  );
+  )
 }
 
 export default App;
