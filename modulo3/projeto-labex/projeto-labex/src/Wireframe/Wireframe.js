@@ -1,5 +1,13 @@
+
 import styled from 'styled-components';
 import '../App.css';
+// import { AdminHomePage } from '../pages/AdminHomePage';
+// import { ApplicationFormPage } from '../pages/ApplicationFormPage';
+// import { CreateTripPage } from '../pages/CreateTripPage';
+// import { HomePage } from '../pages/HomePage';
+// import { ListTripsPage } from '../pages/ListTripsPage';
+// import { LoginPage } from '../pages/LoginPage';
+
 export const Header = styled.header`
   display: flex;
   border: solid 1px black;
@@ -59,10 +67,7 @@ export const Sidebar = styled.div`
 export const ContainerPrincipal = () => {
     return (
         <div>
-            <Header>
-                <div>LabeX</div>
-                <p  >MENU</p>
-            </Header>
+       
 
             <Container>
                 <Sidebar class="item item-1"  >Lorem ipsum dolor sit amet,
