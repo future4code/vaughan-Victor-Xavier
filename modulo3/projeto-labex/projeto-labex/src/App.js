@@ -2,7 +2,7 @@
 import './App.css';
 import { Header } from "../src/Header/Header"
 // import { BrowserRouter, Route, Router  } from 'react-router-dom';
-import {Router} from "../src/Router/Router"
+import { Router } from "../src/Router/Router"
 
 
 // import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -19,8 +19,8 @@ import { ContainerPrincipal } from './Wireframe/Wireframe';
 function App() {
   return (
     <div >
-    
-<Router/>
+
+      <Router />
 
 
 

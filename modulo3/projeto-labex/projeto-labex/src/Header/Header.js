@@ -25,13 +25,13 @@ export const Header = () =>{
 
 
     const goToAdminHomePage = ()=>{
-        navigate("/Admin")
+        navigate("/admin/trips/list")
     }
     const goToApplicationFormPage = ()=>{
         navigate("/Application")
     }
     const goToCreateTripPage = ()=>{
-        navigate("/Create-Trip")
+        navigate("/admin/trips/create")
     }
     const goToListTripsPage = ()=>{
         navigate("/List-Trip")
@@ -39,6 +39,10 @@ export const Header = () =>{
     const goToLoginPage = ()=>{
         navigate("/Login")
     }
+    const goToTripDetailsPage = ()=>{
+        navigate("/admin/trips/")
+    }
+
     return(
     <HeaderAll>
         
@@ -47,6 +51,7 @@ export const Header = () =>{
          <button onClick={goToCreateTripPage} >create trip</button>
          <button onClick={goToListTripsPage} >list trip</button>
          <button onClick={goToLoginPage} >login</button>  
+         <button onClick={goToTripDetailsPage} >trip details</button>  
     </HeaderAll>
     )
  }

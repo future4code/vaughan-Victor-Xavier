@@ -9,26 +9,40 @@ const Box1 = styled.div`
     height: 100vh;
     width: 100vh;
   `
+const Menu = styled.div`
+ padding: 5px;
 
-export const AdminHomePage = () =>{
-    return(
+
+  `
+
+export const AdminHomePage = () => {
+    return (
         <div>
-            <Header/>
+            <Header />
             <Container>
-    
-    <Sidebar>asdasdas</Sidebar>
-    <Box1>
-<div>asdasdas</div>
-<div>asdasdasd</div>
-<div>asdasdasd</div>
+
+                <Sidebar>
+                    <Menu>Tela</Menu>
+
+                    <Menu>Home</Menu>
+
+                </Sidebar>
+                <Box1>
+                    <div>asdasdas</div>
+                    <div>asdasdasd</div>
+                    <div>asdasdasd</div>
 
 
-    </Box1>
-    <Sidebar>asdasd</Sidebar>
-    
-    
-            </Container>  
-        </div> 
-        
-        )
+                </Box1>
+                <Sidebar>
+                <Menu>Contatos</Menu>
+
+
+                </Sidebar>
+
+
+            </Container>
+        </div>
+
+    )
 }
