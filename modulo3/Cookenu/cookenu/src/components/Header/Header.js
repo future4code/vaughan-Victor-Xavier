@@ -14,8 +14,20 @@ import MenuItem from '@mui/material/MenuItem';
 import { goAddRecipesPage, goRecipePage, goToLogin } from '../../routes/coordinator';
 import { useNavigate } from 'react-router-dom';
 
+
 //Local onde alterar os botoes do header
-const pages = ['Home','login array'];
+const pages = [{
+    "name": "home",
+    path: "/",
+
+},
+{
+    "name": "login",
+    path: "/login",
+
+},
+
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -37,6 +49,16 @@ const Header = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const goToPage = (nav) => {
+        switch (nav) {
+            case "/":
+                return (goRecipePage(navigate))
+            case "/login":
+                return (goToLogin(navigate))
+            default:
+                return goRecipePage(navigate)
+        }
+    }
 
     return (
         <AppBar position="static">
@@ -85,8 +107,10 @@ const Header = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                                    <Typography 
+                                    onClick={() => goToPage(page.path)}
+                                    textAlign="center">{page.name}</Typography>
                                 </MenuItem>
 
                             ))}
@@ -94,7 +118,7 @@ const Header = () => {
                         </Menu>
                     </Box>
                     {/* entre cokenu  e home */}
-                 
+
                     <Typography
                         variant="h6"
                         noWrap
@@ -106,30 +130,23 @@ const Header = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                key={page}
-                                onClick={() => goRecipePage(navigate)}
+                                key={page.name}
+                                onClick={() => goToPage(page.path)}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))}
-                         <Button
-                               
-                                onClick={() => goToLogin(navigate)}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                login
-                             
-                            </Button>
+                       
                     </Box>
-                   
+
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>
                         </Tooltip>
-                        
+
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -153,7 +170,7 @@ const Header = () => {
                             ))}
                         </Menu>
                     </Box>
-                    
+
                 </Toolbar>
             </Container>
         </AppBar>
