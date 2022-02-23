@@ -9,7 +9,7 @@ export const goAddRecipesPage = (navigate) => {
     navigate("/adicionar-receita")
 }
 export const goRecipeDetailPage = (navigate) => {
-    navigate(`/detalhe/${id}`)
+    navigate(`/detalhe/:id`)
 }
 export const goRecipePage = (navigate) => {
     navigate("/")

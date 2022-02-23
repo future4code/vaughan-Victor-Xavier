@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Header from "../components/Header/Header";
 import { AddRecipesPage } from "../pages/AddRecipesPage/AddRecipesPage";
 import { ErrorPage } from "../pages/Error/Error";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
@@ -11,6 +12,7 @@ import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 export const Router = () => {
     return (
         <BrowserRouter>
+            <Header />
             <Routes>
                 <Route path="/adicionar-receita" element={<AddRecipesPage />} />
                 <Route path="/login" element={<LoginPage />} />
