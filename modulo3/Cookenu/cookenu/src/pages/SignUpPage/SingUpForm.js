@@ -18,15 +18,16 @@ export const SignUpForm = () => {
     const navigate = useNavigate()
     const onSubmitForm = (event) => {
         event.preventDefault()
-        goToLogin(navigate)
+       
 
     }
     const signUp = () => {
 
         axios.post(`${BASE_URL}/user/signup`, form)
             .then((res) => {
-
-                alert("cadastrado")
+               
+                // alert("cadastrado")
+                goToLogin(navigate)
             })
             .catch((err) => {
                 console.log(err.response)

@@ -3,10 +3,8 @@ import { InputsContainer, ScreenContainer, } from "./styled";
 import { TextField } from "@material-ui/core";
 import { useForm } from "../../hooks/useForm";
 import Button from "@mui/material/Button";
-import axios from "axios";
-import { BASE_URL } from "../../constants/url"
+import { login } from "../../services/user";
 import { useNavigate } from "react-router-dom";
-import { goRecipePage } from "../../routes/coordinator";
 
 
 
@@ -15,22 +13,12 @@ export const LoginForm = () => {
     const navigate = useNavigate()
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login()
-        goRecipePage(navigate)
-      
+        login(form,clear,navigate)
+        
+
     }
 
-    const login = () => {
 
-        axios.post(`${BASE_URL}/user/login`, form)
-            .then((res) => {
-                localStorage.setItem("token", res.data.token)
-                // console.log("aqui", res.data)
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }
     return (
 
         <ScreenContainer>
@@ -66,7 +54,7 @@ export const LoginForm = () => {
                         fullWidth
                         variant={"contained"}
                         color={"primary"}
-                        // onClick={() => goRecipePage(navigate)}
+                    // onClick={() => goRecipePage(navigate)}
                     >Fazer login
                     </Button>
 
