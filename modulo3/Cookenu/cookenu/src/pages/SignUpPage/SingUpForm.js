@@ -2,6 +2,10 @@ import { Button, TextField } from "@mui/material"
 import { useForm } from "../../hooks/useForm"
 import { InputsContainer, ScreenContainer } from "../LoginPage/styled"
 import React from "react"
+import axios from "axios"
+import { BASE_URL } from "../../constants/url"
+import { goToLogin } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -10,9 +14,24 @@ import React from "react"
 
 
 export const SignUpForm = () => {
-    const [form, onchange, clear] = useForm({ email: "", password: "" })
+    const [form, onChange, clear] = useForm({ name: "", email: "", password: "" })
+    const navigate = useNavigate()
     const onSubmitForm = (event) => {
-        event.preventDefaut()
+        // event.preventDefaut()
+        goToLogin(navigate)
+
+    }
+    const signUp = () => {
+
+        axios.post(`${BASE_URL}/user/signup`, form)
+            .then((res) => {
+
+                alert("cadastrado")
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+
     }
     return (
 
@@ -23,14 +42,14 @@ export const SignUpForm = () => {
                     <TextField
                         name={"name"}
                         value={form.name}
-                        onChange={onchange}
+                        onChange={onChange}
                         label={"Nome completo"}
                         variant={"outlined"}
                         fullWidth
                         margin="dense"
                         required
                         autoFocus
-
+                        type={"name"}
 
 
                     />
@@ -38,24 +57,27 @@ export const SignUpForm = () => {
                     <TextField
                         name={"email"}
                         value={form.email}
-                        onChange={onchange}
+                        onChange={onChange}
                         label={"Email"}
                         variant={"outlined"}
                         fullWidth
                         margin="dense"
                         required
                         type={"email"}
+
                     />
                     <TextField
                         name={"password"}
                         value={form.password}
-                        onChange={onchange}
+                        onChange={onChange}
                         label={"Senha"}
                         variant={"outlined"}
                         fullWidth
                         margin="dense"
                         required
                         type={"password"}
+                        autoComplete={"on"}
+
                     />
 
                     <Button
@@ -63,6 +85,7 @@ export const SignUpForm = () => {
                         fullWidth
                         variant={"contained"}
                         color={"primary"}
+                        onClick={signUp}
 
                     >Criar conta
                     </Button>
