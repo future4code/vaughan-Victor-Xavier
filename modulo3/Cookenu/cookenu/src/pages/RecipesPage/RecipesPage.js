@@ -1,9 +1,10 @@
 // import { Button } from "@material-ui/core";
 import React from "react";
-import { UseProtectedPage } from "../../hooks/useProtectedPage";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
+
 
 export const RecipePage = () => {
-    UseProtectedPage()
+    useProtectedPage()
     return (
         <div>
             <h1>RecipePage</h1>
