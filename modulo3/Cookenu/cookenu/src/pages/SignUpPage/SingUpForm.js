@@ -17,7 +17,7 @@ export const SignUpForm = () => {
     const [form, onChange, clear] = useForm({ name: "", email: "", password: "" })
     const navigate = useNavigate()
     const onSubmitForm = (event) => {
-        // event.preventDefaut()
+        event.preventDefault()
         goToLogin(navigate)
 
     }

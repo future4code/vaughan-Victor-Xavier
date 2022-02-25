@@ -14,10 +14,10 @@ export const LoginForm = () => {
     const [form, onChange, clear] = useForm({ email: "", password: "" })
     const navigate = useNavigate()
     const onSubmitForm = (event) => {
-       
+        event.preventDefault()
         login()
         goRecipePage(navigate)
-        event.preventDefaut()
+      
     }
 
     const login = () => {
