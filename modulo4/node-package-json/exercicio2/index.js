@@ -20,7 +20,7 @@ switch (nome) {
         break
     default: console.log("\033[31m erro em 1 ou mais parametros")
 
-}
+}git stat
 var red, blue, green, reset;
 red = '\u001b[31m';
 blue = '\u001b[34m';
