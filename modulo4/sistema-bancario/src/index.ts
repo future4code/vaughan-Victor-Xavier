@@ -63,8 +63,36 @@ app.post("/users/create-account", (req, res) => {
 
     }
 })
+app.get("/user/balance", (req, res) => {
+    let errorCode: number = 422
+    try {
+        const usuarioName = req.query.name 
+        const usuarioCPF = req.query.cpf
+       
+
+        const filtro = users.filter((user)=>{
+            return user.name === usuarioName
+        })
+        
+        const serachname = users.find((name) => {
+            return name.name === usuarioName
+        }
+        )
+        const serchcpf = users.find((cpf) => {
+            return cpf.cpf === usuarioCPF
+        }
+        )
+        if (!serachname || !serchcpf) {
+            errorCode = 422;
+            throw new Error("Name ou CPF inválido!");
+          }
+        res.status(200).send({saldo: filtro[0].saldo})
+    } catch (error: any) {
+        res.status(errorCode).send({ message: error.message })
+    }
 
 
+})
 
 
 
@@ -73,16 +101,16 @@ app.post("/users/create-account", (req, res) => {
 app.get("/users", (req, res) => {
     let errorCode = 400
     try {
-        const nameUser: string = req.query.name as string
-        const cpfUser: string = req.query.cpf as string
+        const usuarioName: string = req.query.name as string
+        const usuarioCPF: string = req.query.cpf as string
         const findAccount = users.filter((user) =>
-            user.name === nameUser && user.cpf === cpfUser
+            user.name === usuarioName && user.cpf === usuarioCPF
         )
         const findName = users.find((name) => {
-            return name.name.toLowerCase() === nameUser.toLowerCase()
+            return name.name.toLowerCase() === usuarioName.toLowerCase()
         })
         const findCPF = users.find((cpf) => {
-            return cpf.cpf.toLowerCase() === cpfUser.toLowerCase()
+            return cpf.cpf.toLowerCase() === usuarioCPF.toLowerCase()
         })
 
         if (!findName) {
@@ -107,16 +135,18 @@ app.get("/users", (req, res) => {
 
 
 
+
+
 app.get("/user/cpf", (req, res) => {
     let errorCode: number = 422
     try {
-        const cpfuser = req.query.cpf
+        const usuarioCPF = req.query.cpf
 
         const filtro: any = users.filter((user) => {
-            return user.cpf === cpfuser
+            return user.cpf === usuarioCPF
         })
         const serchcpf = users.find((cpf) => {
-            return cpf.cpf === cpfuser
+            return cpf.cpf === usuarioCPF
         }
         )
         if (!serchcpf) {
