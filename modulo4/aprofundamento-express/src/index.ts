@@ -103,10 +103,11 @@ app.post("/criar-tarefa/:idUsuario", (req, res) => {
   const idUsuario = Number(req.headers.authorization)
 
   listaDeAfazeres.push({
-    title: nomeDaTarefa,
-    id: Number(Date.now()),
-    completed: completo,
     userId: idUsuario,
+    id: Number(Date.now()),
+    title: nomeDaTarefa,
+    completed: completo,
+    
   })
   res.status(200).send({ listaDeAfazeres })
 })

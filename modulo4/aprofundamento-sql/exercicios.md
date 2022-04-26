@@ -1,3 +1,7 @@
+
+<h1> aprofundamento sql
+</h1>
+
 1 a) primeiramente o ALTER TABLE vai dizer qual o nome da tabela que vai ser alterada, no caso a Actor, ai o DROP COLUM vai deleta-la
 b) vai mudar o nome da coluna de gener para sex
 c) vai mudar a quantidade do VARCHAR de 6 para 255

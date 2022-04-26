@@ -66,14 +66,14 @@ app.post("/users/create-account", (req, res) => {
 app.get("/user/balance", (req, res) => {
     let errorCode: number = 422
     try {
-        const usuarioName = req.query.name 
+        const usuarioName = req.query.name
         const usuarioCPF = req.query.cpf
-       
 
-        const filtro = users.filter((user)=>{
+
+        const filtro = users.filter((user) => {
             return user.name === usuarioName
         })
-        
+
         const serachname = users.find((name) => {
             return name.name === usuarioName
         }
@@ -85,8 +85,8 @@ app.get("/user/balance", (req, res) => {
         if (!serachname || !serchcpf) {
             errorCode = 422;
             throw new Error("Name ou CPF inválido!");
-          }
-        res.status(200).send({saldo: filtro[0].saldo})
+        }
+        res.status(200).send({ saldo: filtro[0].saldo })
     } catch (error: any) {
         res.status(errorCode).send({ message: error.message })
     }
