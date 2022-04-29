@@ -61,7 +61,7 @@ export async function signup(req: Request, res: Response) {
         const hasManager = new HashManager()
         const hashPassword = hasManager.createHash(password)
         console.log("pass" + hashPassword)
-        const newUser = new CreateUserModel(id, name, email, hashPassword, role)
+const newUser = new CreateUserModel(id, name, email, hashPassword, role)        
         await userDatabase.createUser(newUser)
 
         const autenticator = new Authenticator()

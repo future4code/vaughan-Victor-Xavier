@@ -1,3 +1,4 @@
+import { USER_ROLES } from './../types/types';
 
 
 
@@ -8,7 +9,7 @@ export class CreateUserModel {
         private name: string,
         private email: string,
         private password: string,
-        private role: string
+        private role: USER_ROLES
     ) { }
 
     /**

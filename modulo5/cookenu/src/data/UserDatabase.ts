@@ -1,3 +1,4 @@
+import { Recipe } from './../model/createRecipesModel';
 import { CreateUserModel } from './../model/CreateUserModel';
 
 import { BaseDatabase } from "./BaseDatabase";
@@ -11,8 +12,10 @@ export class UserDatabase extends BaseDatabase{
                 id: user.getId(),
                 name: user.getname(),
                 email: user.getemail(),
-                password: user.getpassword()
+                password: user.getpassword(),
+                role:user.getrole()
             })
+            
         } catch (error: any) {
             throw new Error(error.sqlMessage || error.message);
             
@@ -35,7 +38,20 @@ export class UserDatabase extends BaseDatabase{
 
 
 
-
+    public async createRecipe(recipe: Recipe){
+        try {
+            await BaseDatabase.connection('recipesCookenu').insert({
+                id: recipe.getId(),
+                title: recipe.getTitle(),
+                description: recipe.getDescription()
+               
+            })
+            
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message);
+            
+        }
+    }
 
 
 

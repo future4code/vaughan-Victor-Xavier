@@ -33,7 +33,7 @@ export async function login(req: Request, res: Response) {
 
         const userDatabase = new UserDatabase()
         const user = await userDatabase.findUserByEmail(email)
-        console.log(user)
+     
         if (!user) {
             res.status(409).send("email nao cadastrado")
         }
@@ -48,9 +48,8 @@ export async function login(req: Request, res: Response) {
         }
 
         const autenticator = new Authenticator()
-        const token = autenticator.generateToken({ id: user.getId(), role: user.getrole() })
-
-        res.status(201).send("usuario logado com sucesso " + token)
+        const token = autenticator.generateToken({id: user.getId(), role: user.getrole()})
+        res.status(201).send({message: "Usuário logado" ,token: token})
     } catch (error: any) {
         console.log(error)
         if (res.statusCode === 200) {

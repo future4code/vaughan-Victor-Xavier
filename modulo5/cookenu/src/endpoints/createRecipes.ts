@@ -1,17 +1,20 @@
-import { UserDatabase } from './../data/UserDatabase';
+import { Authenticator } from './../services/token';
 import { authenticationData } from './../types/types';
+import { UserDatabase } from './../data/UserDataBase';
+import { HashManager } from './../services/generatehash';
 import { Request, Response } from "express"
 import { Recipe } from '../model/createRecipesModel';
+import { IdGeneretor } from '../services/idGeneretor';
 
 
-export const createRecipe = async (req: Request, res: Response): Promise<any> => {
-
-    const { title, description }: { title: string, description: string } = req.body
-    const token = req.headers.authorization as string
-    const id = GenerateId()
-
+export const createRecipe = async (req: Request, res: Response) => {
+    
+    
     try {
-
+        const idGeneretor = new IdGeneretor();
+        const id = idGeneretor.generateId()
+        const token = req.headers.authorization as string
+        const {title, description}=req.body
         if (!token) {
             res.status(401).send("Para realizar essa operação é necessário ter token de autorização")
         }
@@ -20,19 +23,19 @@ export const createRecipe = async (req: Request, res: Response): Promise<any> =>
             res.status(422).send("Para realizar o cadastro de uma nova receita é necessário informar os seguintes campos: title, description.")
         }
 
-        const authentication = new authenticationData()
-        const verifyToken = authentication.getTokenData(token)
+        const authentication = new Authenticator()
+        const verifyToken = authentication.getData(token)
 
-        const userDataBase = new UserDatabase()
-        const user = await userDataBase.createUser(verifyToken.id)
-        const userId = user.getId()
+        const recipeDataBase = new UserDatabase()
+
+        const newRecipe = new Recipe(id,title,description)
+             await recipeDataBase.createRecipe(newRecipe)
 
    
 
-        const newRecipe = new Recipe(id, title, description)
+        
+            
 
-        const recipeDatabase = new RecipeDatabase()
-        recipeDatabase.registerRecipe(newRecipe)
 
         res.status(201).send({ message: "Receita cadastrada com sucesso!" })
 
