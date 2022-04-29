@@ -1,22 +1,13 @@
 import { Authenticator } from './../services/token';
-import { authenticationData } from './../types/types';
-import { CreateUserModel } from './../model/CreateUserModel';
-import { UserDatabase } from './../data/UserDataBase';
 import { HashManager } from './../services/generatehash';
-
-
-
-import { IdGeneretor } from './../services/idGeneretor';
-
 import { Request, Response } from "express";
-;
-
+import { UserDatabase } from '../data/UserDataBase';
 
 export async function login(req: Request, res: Response) {
     let statusCode = 400
     try {
-        const {email, password} = req.body
-        
+        const { email, password } = req.body
+
 
         if (!email) {
             res.statusCode = 422
@@ -38,7 +29,7 @@ export async function login(req: Request, res: Response) {
             throw new Error("senha muito curta");
         }
 
-       
+
 
         const userDatabase = new UserDatabase()
         const user = await userDatabase.findUserByEmail(email)
@@ -47,17 +38,17 @@ export async function login(req: Request, res: Response) {
             res.status(409).send("email nao cadastrado")
         }
 
-      
+
 
         const hasManager = new HashManager()
-   const passwordIsCorrect=hasManager.compareHash(password,user.getpassword())
-        
-   if(!passwordIsCorrect){
-       res.status(401).send("email e/ou senha incorreto(s)")
-   }
-   
-   const autenticator = new Authenticator()
-        const token = autenticator.generateToken({ id:user.getId(), role:user.getrole() })
+        const passwordIsCorrect = hasManager.compareHash(password, user.getpassword())
+
+        if (!passwordIsCorrect) {
+            res.status(401).send("email e/ou senha incorreto(s)")
+        }
+
+        const autenticator = new Authenticator()
+        const token = autenticator.generateToken({ id: user.getId(), role: user.getrole() })
 
         res.status(201).send("usuario logado com sucesso " + token)
     } catch (error: any) {

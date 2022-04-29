@@ -67,7 +67,7 @@ export async function signup(req: Request, res: Response) {
         const autenticator = new Authenticator()
         const token = autenticator.generateToken({ id, role })
 
-        res.status(201).send("usuario cadastrado " + token)
+        res.status(201).send("usuario cadastrado " + token + newUser)
     } catch (error: any) {
         console.log(error)
         if (res.statusCode === 200) {

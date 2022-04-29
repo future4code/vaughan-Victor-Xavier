@@ -18,6 +18,20 @@ export class UserDatabase extends BaseDatabase{
             
         }
     }
+    public async getUser(): Promise<BaseDatabase[]>{
+        try {
+            const user = await BaseDatabase.connection('User')
+            .select(
+                "id",
+                "name",
+                "email"
+                )
+            return user
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message);
+            
+        }
+    }
 
 
 
