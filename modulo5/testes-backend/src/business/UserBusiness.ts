@@ -6,6 +6,9 @@ import idGenerator, { IdGenerator } from "../services/idGenerator";
 import tokenGenerator, { TokenGenerator } from "../services/tokenGenerator";
 
 export class UserBusiness {
+   static getIDBusiness(id: string) {
+      throw new Error("Method not implemented.");
+   }
    constructor(
       private userDatabase: UserDatabase,
       private idGenerator:IdGenerator,
