@@ -1,5 +1,4 @@
 import { ShowDatabase } from "../data/ShowDatabase";
-import { UserDatabase } from "../data/RunnerDatabase";
 import { ShowInputDTO } from "../model/Show";
 import { showRouter } from "../routes/showRouter";
 import { Authenticator } from "../services/Authenticator";

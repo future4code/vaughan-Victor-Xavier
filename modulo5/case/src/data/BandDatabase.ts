@@ -1,5 +1,5 @@
 
-import { User } from "../model/Athlete";
+import { Athlete } from "../model/Athlete";
 import { BaseDatabase } from "./BaseDatabase";
 import { Band } from "../model/Runner";
 
