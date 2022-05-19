@@ -3,11 +3,13 @@ import { AddressInfo } from "net";
 import express from "express";
 import { runnerRouter } from "./Routes/runnerRouter";
 import { dartRouter } from "./Routes/dartRouter";
+import cors from "cors"
 
 dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.use("/runner", runnerRouter);
 app.use("/dart", dartRouter);
