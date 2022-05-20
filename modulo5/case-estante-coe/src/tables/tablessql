@@ -1,0 +1,18 @@
+ Runner_CoeCase (
+        id VARCHAR(255) PRIMARY KEY,
+        competition  VARCHAR(255) ,
+        athlete VARCHAR(255) UNIQUE NOT NULL,
+       valor VARCHAR(255) NOT NULL,
+        unity VARCHAR(255)  NOT NULL ,
+        Progretion  VARCHAR(255)  NOT NULL
+      );
+
+
+      Dart_CoeCase (
+        id VARCHAR(255) PRIMARY KEY,
+        competition  VARCHAR(255) ,
+        athlete VARCHAR(255) UNIQUE NOT NULL,
+       valor VARCHAR(255) NOT NULL,
+        unity VARCHAR(255)  NOT NULL ,
+        Progretion  VARCHAR(255)  NOT NULL
+      );
